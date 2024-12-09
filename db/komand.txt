@@ -1,0 +1,44 @@
+INSERT INTO work VALUES ('Walker', 'stunman', '12')
+INSERT INTO work VALUES ('Brown', 'doctor', '24')
+INSERT INTO work VALUES ('King', 'tutor', '1')
+INSERT INTO work VALUES ('Johnson', 'stunman', '6')
+INSERT INTO work VALUES ('Wilson', 'doctor', '13')
+
+INSERT INTO people VALUES ('Harry', 'Johnson', '22', 'single')
+INSERT INTO people VALUES ('Lily', 'King', '19', 'single')
+INSERT INTO people VALUES ('Emily', 'Walker', '34', 'married')
+INSERT INTO people VALUES ('George', 'Wilson', '48', 'single')
+
+DELETE FROM work WHERE work.surname = 'Brown'
+
+SELECT people.name, work.surname FROM people, work WHERE people.surname = work.surname AND work.profession = 'stunman' OR people.surname = work.surname AND people.age = '19'
+
+
+
+docker compose up --build
+docker compose down
+
+
+g++ -std=c++17 -o http_server http_server.cpp -lboost_system -lpthread
+
+./http_server
+
+curl -d "POST /user Eva" http://localhost:8080
+
+curl -d "POST /user Sasha" http://localhost:8080
+
+curl -d "GET /balance 1804289383" http://localhost:8080
+
+curl -d "GET /pair" http://localhost:8080
+
+curl -d "GET /lot" http://localhost:8080
+
+curl -d "POST /order 846930886 1 200 0.015 buy" http://localhost:8080
+
+curl -d "POST /order 1804289383 1 300 0.01 sell" http://localhost:8080
+
+curl -d "GET /order" http://localhost:8080
+
+curl -d "DELETE /order 1804289383 3" http://localhost:8080
+
+
